@@ -1,7 +1,13 @@
 #include <iostream>
+#include "Headers/Person.hpp"
+#include "Headers/PersonManager.hpp"
 
 int main()
 {
-    return 0;
+   Person person1("Bartosz", "TAKIJAKJA", "Ulica", 1122334455, 'M');
+   person1.changeAdress("Odolanowska");
+   
+   PersonManager personManager;
+   return 0;
 }
 
