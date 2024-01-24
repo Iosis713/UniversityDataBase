@@ -1,7 +1,7 @@
 #include "Headers/Person.hpp"
 
-Person::Person(const std::string name,
-               const std::string surname,
+Person::Person(std::string name,
+               std::string surname,
                std::string adress,
                const long int pesel,
                const char sex)
@@ -11,11 +11,6 @@ Person::Person(const std::string name,
         , pesel_(pesel)
         , sex_(sex)
 {}
-
-void Person::changeAdress(const std::string& adress)
-{
-    adress_ = adress;
-}
 
 bool Person::operator==(const Person& person) const
 {
@@ -54,4 +49,20 @@ char Person::getSex() const
     return this->sex_;
 }
 
+//_____________________SETTERS___________________________________________
+
+void Person::setAdress(const std::string& adress)
+{
+    adress_ = adress;
+}
+
+void Person::setName(const std::string& name)
+{
+    name_ = name;
+}
+
+void Person::setSurname(const std::string& surname)
+{
+    surname_ = surname;
+}
 

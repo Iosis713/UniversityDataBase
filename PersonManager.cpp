@@ -14,6 +14,15 @@ void PersonManager::addPerson(const std::string& name,
     manager_.push_back(std::make_unique<Person>(name, surname, adress, pesel, sex));
 }
 
+void PersonManager::addPerson(const std::string& name,
+                              const std::string& surname,
+                              const std::string& adress,
+                              const long int pesel,
+                              const char sex,
+                              const long int index)
+{
+    manager_.push_back(std::make_unique<Student>(name, surname, adress, pesel, sex, index));
+}
 
 //_______________________________GETTERS_______________________________________
 

@@ -5,9 +5,11 @@
 int main()
 {
    Person person1("Bartosz", "TAKIJAKJA", "Ulica", 1122334455, 'M');
-   person1.changeAdress("Odolanowska");
-   
+   person1.setAdress("Odolanowska");
+
    PersonManager personManager;
+
+
    return 0;
 }
 

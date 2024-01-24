@@ -5,7 +5,8 @@ project(UniversityDataBase)
 set(CXX_STANDARD REQUIRED 17)
 set(FLAGS -Wall -Wpedantic -Wextra -Werror)
 set(SRC  Person.cpp
-         PersonManager.cpp)
+         PersonManager.cpp
+         Student.cpp)
 
 find_package(GTest REQUIRED)
 
