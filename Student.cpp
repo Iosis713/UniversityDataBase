@@ -1,12 +1,13 @@
 #include "Headers/Student.hpp"
 
-Student::Student(const std::string name,
-        std::string surname,
-        std::string adress,
-        const long int pesel,
-        const char sex,
-        const long int index)
-    : Person(name, surname, adress, pesel, sex)
+Student::Student(const char personType,
+                 const std::string name,
+                 std::string surname,
+                 std::string adress,
+                 const long int pesel,
+                 const char sex,
+                 const long int index)
+    : Person(personType, name, surname, adress, pesel, sex)
     , index_(index)
 {}
 
@@ -18,6 +19,12 @@ bool Student::operator==(const Student& student) const
            pesel_ == student.getPesel() and
            sex_ == student.getSex() and
            index_ == student.getIndex());
+}
+
+void Student::printPerson()
+{
+    Person::printPerson();
+    std::cout << index_ << " ";
 }
 
 //________________________GETTERS__________________________

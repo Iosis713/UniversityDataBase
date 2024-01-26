@@ -5,6 +5,7 @@
 class Person
 {
 protected:
+    const char personType_;
     std::string name_;
     std::string surname_;
     std::string adress_;
@@ -12,7 +13,8 @@ protected:
     const char sex_;
 
 public:
-    Person(std::string name,
+    Person(const char personType,
+           std::string name,
            std::string surname,
            std::string adress,
            const long int pesel,
@@ -21,7 +23,7 @@ public:
     virtual ~Person() = default;
     
     bool operator==(const Person& person) const;    
-    //virtual void printPerson();
+    virtual void printPerson();
 
 //_____________________________GETTERS____________________________
 
@@ -30,7 +32,7 @@ public:
     std::string getAdress() const;
     long int getPesel() const;
     char getSex() const;
-
+    char getPersonType() const;
 //_____________________________SETTERS____________________________
 
     void setAdress(const std::string& adress);

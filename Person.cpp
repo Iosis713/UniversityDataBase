@@ -1,11 +1,13 @@
 #include "Headers/Person.hpp"
 
-Person::Person(std::string name,
+Person::Person(const char personType,
+               std::string name,
                std::string surname,
                std::string adress,
                const long int pesel,
                const char sex)
-        : name_(name)
+        : personType_(personType)
+        , name_(name)
         , surname_(surname)
         , adress_(adress)
         , pesel_(pesel)
@@ -14,13 +16,23 @@ Person::Person(std::string name,
 
 bool Person::operator==(const Person& person) const
 {
-    return(name_ == person.getName() and
+    return(personType_ == person.getPersonType() and
+           name_ == person.getName() and
            surname_ == person.getSurname() and
            adress_ == person.getAdress() and
            pesel_ == person.getPesel() and
            sex_ == person.getSex());
 }
 
+void Person::printPerson()
+{
+    std::cout << personType_ << " " << 
+                 name_ << " " <<
+                 surname_ << " " <<
+                 adress_ << " " << 
+                 pesel_ << " " <<
+                 sex_ << " ";
+}
 
 //_______________________GETTERS______________________________________
 
@@ -37,6 +49,11 @@ std::string Person::getSurname() const
 std::string Person::getAdress() const
 {
     return this->adress_;
+}
+
+char Person::getPersonType() const
+{
+    return this->personType_;
 }
 
 long int Person::getPesel() const

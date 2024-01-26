@@ -8,7 +8,8 @@ protected:
     const long int index_;
 
 public:
-    Student(const std::string name,
+    Student(const char personType,
+            const std::string name,
             std::string surname,
             std::string adress,
             const long int pesel,
@@ -18,6 +19,8 @@ public:
     virtual ~Student() = default;
     
     bool operator==(const Student& student) const;
+    void printPerson();
+    
 
 //_________________________GETTERS____________________________
 
