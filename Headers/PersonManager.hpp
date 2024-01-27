@@ -2,6 +2,8 @@
 
 #include "Person.hpp"
 #include "Student.hpp"
+
+#include <fstream>
 #include <memory>
 #include <vector>
 
@@ -31,7 +33,7 @@ public:
 
     void printAll();
 
-    //void addToFile(const std::string& fileName);
+    void addToFile();
 
     std::vector<std::unique_ptr<Person>>& getManager();
 

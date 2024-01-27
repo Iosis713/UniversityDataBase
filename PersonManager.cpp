@@ -35,6 +35,30 @@ void PersonManager::printAll()
     }
 }
 
+void PersonManager::addToFile()
+{
+    std::ofstream database("database.txt", database.out | database.app);
+    if(database.is_open())
+    {
+        for(const auto& person : manager_)
+        {
+            database << person->getPersonType() << '\n';
+            database << person->getName() << '\n';
+            database << person->getSurname() << '\n';
+            database << person->getAdress() << '\n';
+            database << person->getPesel() << '\n';
+            database << person->getSex() << '\n';
+            /*
+            if(person->getPersonType() == 'S' or
+               person->getPersonType() == 's')
+            {
+                database << person->getIndex() << '\n';
+            }
+            */
+        }
+    }
+}
+
 //_______________________________GETTERS_______________________________________
 
 std::vector<std::unique_ptr<Person>>& PersonManager::getManager()
