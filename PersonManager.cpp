@@ -12,7 +12,7 @@ void PersonManager::addPerson(const char personType,
                               const long int pesel,
                               const char sex)
 {
-    manager_.push_back(std::make_unique<Person>(personType, name, surname, adress, pesel, sex));
+    manager_.push_back(std::make_shared<Person>(personType, name, surname, adress, pesel, sex));
 }
 
 void PersonManager::addPerson(const char personType,
@@ -23,7 +23,7 @@ void PersonManager::addPerson(const char personType,
                               const char sex,
                               const long int index)
 {
-    manager_.push_back(std::make_unique<Student>(personType, name, surname, adress, pesel, sex, index));
+    manager_.push_back(std::make_shared<Student>(personType, name, surname, adress, pesel, sex, index));
 }
 
 void PersonManager::printAll()
@@ -48,20 +48,18 @@ void PersonManager::addToFile()
             database << person->getAdress() << '\n';
             database << person->getPesel() << '\n';
             database << person->getSex() << '\n';
-            /*
-            if(person->getPersonType() == 'S' or
-               person->getPersonType() == 's')
+            
+            if(typeid(*person) == typeid(Student))
             {
-                database << person->getIndex() << '\n';
+                database << std::dynamic_pointer_cast<Student>(person)->getIndex() << '\n';
             }
-            */
         }
     }
 }
 
 //_______________________________GETTERS_______________________________________
 
-std::vector<std::unique_ptr<Person>>& PersonManager::getManager()
+std::vector<std::shared_ptr<Person>>& PersonManager::getManager()
 {
     return this-> manager_;
 }

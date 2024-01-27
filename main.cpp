@@ -12,6 +12,7 @@ int main()
     personManager.addPerson('P', "Pjoter", "Takijakja", "Ulica", 1122334455, 'M');
     personManager.addPerson('S', "Bartosz", "Kowalski", "Ulica", 11223344, 'M', 123456);
     personManager.addPerson('S', "Marek", "Nowa", "Nobezjaj", 11111111, 'M', 0000222);
+    personManager.addPerson('P', "Pjoterka", "Takijakja2", "Tralalalala", 007, 'F');
 
     personManager.addToFile();
 

@@ -5,12 +5,13 @@
 
 #include <fstream>
 #include <memory>
+#include <typeinfo>
 #include <vector>
 
 class PersonManager
 {
 protected:
-    std::vector<std::unique_ptr<Person>> manager_;
+    std::vector<std::shared_ptr<Person>> manager_;
 
 public:
     PersonManager();
@@ -35,7 +36,7 @@ public:
 
     void addToFile();
 
-    std::vector<std::unique_ptr<Person>>& getManager();
+    std::vector<std::shared_ptr<Person>>& getManager();
 
 };
 
