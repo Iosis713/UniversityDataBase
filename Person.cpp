@@ -1,11 +1,11 @@
 #include "Headers/Person.hpp"
 
-Person::Person(const char personType,
+Person::Person(const std::string personType,
                std::string name,
                std::string surname,
                std::string adress,
                const long int pesel,
-               const char sex)
+               const std::string sex)
         : personType_(personType)
         , name_(name)
         , surname_(surname)
@@ -51,7 +51,7 @@ std::string Person::getAdress() const
     return this->adress_;
 }
 
-char Person::getPersonType() const
+std::string Person::getPersonType() const
 {
     return this->personType_;
 }
@@ -61,7 +61,7 @@ long int Person::getPesel() const
     return this->pesel_;
 }
 
-char Person::getSex() const
+std::string Person::getSex() const
 {
     return this->sex_;
 }

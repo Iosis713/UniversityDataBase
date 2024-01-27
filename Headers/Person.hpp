@@ -5,20 +5,20 @@
 class Person
 {
 protected:
-    const char personType_;
+    const std::string personType_;
     std::string name_;
     std::string surname_;
     std::string adress_;
     const long int pesel_;
-    const char sex_;
+    const std::string sex_;
 
 public:
-    Person(const char personType,
+    Person(const std::string personType,
            std::string name,
            std::string surname,
            std::string adress,
            const long int pesel,
-           const char sex);
+           const std::string sex);
 
     virtual ~Person() = default;
     
@@ -31,8 +31,8 @@ public:
     std::string getSurname() const;
     std::string getAdress() const;
     long int getPesel() const;
-    char getSex() const;
-    char getPersonType() const;
+    std::string getSex() const;
+    std::string getPersonType() const;
 //_____________________________SETTERS____________________________
 
     void setAdress(const std::string& adress);

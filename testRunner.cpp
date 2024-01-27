@@ -7,9 +7,9 @@
 TEST(AddPersonTest, PersonAdding)
 {
     PersonManager personManager;
-    personManager.addPerson('P', "Bartosz", "Kowalski", "Ulica", 11223344, 'M');
+    personManager.addPerson("Person", "Bartosz", "Kowalski", "Ulica", 11223344, "Male");
 
-    Person referencePerson('P', "Bartosz", "Kowalski", "Ulica", 11223344, 'M');
+    Person referencePerson("Person", "Bartosz", "Kowalski", "Ulica", 11223344, "Male");
 
     ASSERT_TRUE(*personManager.getManager()[0] == referencePerson);
 }
@@ -18,9 +18,9 @@ TEST(AddPersonTest, PersonAdding)
 TEST(AddPersonTest, StudentAdding)
 {
     PersonManager personManager;
-    personManager.addPerson('S', "Bartosz", "Kowalski", "Ulica", 11223344, 'M', 123456);
+    personManager.addPerson("Student", "Bartosz", "Kowalski", "Ulica", 11223344, "Male", 123456);
 
-    Student referenceStudent('S', "Bartosz", "Kowalski", "Ulica", 11223344, 'M', 123456);
+    Student referenceStudent("Student", "Bartosz", "Kowalski", "Ulica", 11223344, "Male", 123456);
 
     ASSERT_TRUE(*personManager.getManager()[0] == referenceStudent);
 }
