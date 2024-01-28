@@ -1,12 +1,10 @@
 #include <iostream>
 #include "Headers/Person.hpp"
 #include "Headers/PersonManager.hpp"
+#include "Headers/MenuManager.hpp"
 
 int main()
 {
-    Person person1("Person", "Bartosz", "TAKIJAKJA", "Ulica", 1122334455, "Male");
-    person1.setAdress("Odolanowska");
-
     PersonManager personManager;
     /*  
     personManager.addPerson("Person", "Pjoter", "Takijakja", "Ulica", 1122334455, "Male");
@@ -15,8 +13,8 @@ int main()
     personManager.addPerson("Person", "Pjoterka", "Takijakja2", "Tralalalala", 007, "Female");
 
     personManager.addToFile();
-    */
-
+    
+    
     std::cout << "Before reading: \n";
     personManager.printAll();
 
@@ -24,7 +22,14 @@ int main()
     
     std::cout << "After reading: \n";
     personManager.printAll();
-    
+    */
+
+    MenuManager menu;
+    while(menu.isActive())
+    {
+        menu.displayMenu(personManager);
+    }
+
    return 0;
 }
 
