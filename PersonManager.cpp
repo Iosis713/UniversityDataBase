@@ -35,9 +35,9 @@ void PersonManager::printAll()
     }
 }
 
-void PersonManager::addToFile()
+void PersonManager::addToFile(std::string databaseName)
 {
-    std::ofstream database("database.txt", database.out | database.app);
+    std::ofstream database(databaseName, database.out | database.app);
     if(database.is_open())
     {
         for(const auto& person : manager_)

@@ -35,7 +35,7 @@ public:
 
     void printAll();
 
-    void addToFile();
+    void addToFile(std::string databaseName);
     void readFromFile(std::string fileName);
 
     std::vector<std::shared_ptr<Person>>& getManager();

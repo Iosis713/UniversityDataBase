@@ -27,7 +27,7 @@ void MenuManager::displayMenu(PersonManager& manager)
         break;
 
     case 2:
-        std::cout << "Give a file name\n";
+        std::cout << "Give a file name You want to read:\n";
         {
             std::string file = "database.txt";
             std::cin >> file;
@@ -35,7 +35,15 @@ void MenuManager::displayMenu(PersonManager& manager)
             manager.readFromFile(file);
         }
         std::cout << '\n';
+        break;
 
+    case 3:
+        std::cout << "Give file name You want to save as:\n";
+        {   
+            std::string newFileName;
+            std::cin >> newFileName;
+            manager.addToFile(newFileName);
+        }
         break;
 
     default:
