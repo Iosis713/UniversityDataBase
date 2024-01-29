@@ -24,3 +24,16 @@ Takijakja2
 Tralalalala
 7
 Female
+Person
+Grzegorz
+Brzeczyszczykiewicz
+JakisAdress
+98123100123
+Male
+Student
+StudentName
+StudentSurname
+Wroclaw
+112233444
+Female
+12345098
