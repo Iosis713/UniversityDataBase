@@ -110,6 +110,29 @@ void PersonManager::readFromFile(std::string fileName)
     }
 }
 
+std::shared_ptr<Person> PersonManager::searchBySurname(const std::string& surname)
+{
+    for(auto& person : manager_)
+    {
+        if(surname == person->getSurname())
+        {
+            person->printPerson();
+            std::cout << "Look for another person? y/n\n";
+            char answer;
+            std::cin >> answer;
+            if(answer == 'n')
+            {
+                return person;
+            }
+        }
+    }
+    
+    std::cout << "No person found!\n";
+
+    return nullptr;
+}
+
+
 //_______________________________GETTERS_______________________________________
 
 std::vector<std::shared_ptr<Person>>& PersonManager::getManager()

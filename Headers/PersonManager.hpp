@@ -3,6 +3,7 @@
 #include "Person.hpp"
 #include "Student.hpp"
 
+#include <algorithm>
 #include <fstream>
 #include <sstream>
 #include <memory>
@@ -37,6 +38,8 @@ public:
 
     void addToFile(std::string databaseName);
     void readFromFile(std::string fileName);
+    
+    std::shared_ptr<Person> searchBySurname(const std::string& surname);
 
     std::vector<std::shared_ptr<Person>>& getManager();
 
