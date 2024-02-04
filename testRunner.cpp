@@ -93,8 +93,20 @@ TEST(SortingByPesel, peselSorting1)
     referencePersonManager.addPerson("Student", "Bartosz", "Kowalski", "Ulica", 222333444, "Male", 111111);
  
     personManager.sortByPesel();
+    bool result;
+    
+    for(int i = 0; static_cast<int>(personManager.getManager().size()); i++)
+    {
+        if(personManager.getManager()[i]->getPesel() !=
+           referencePersonManager.getManager()[i]->getPesel())
+        {
+            result = false;
+            break;
+        }
+        result = true;
+    }
 
-    ASSERT_TRUE(personManager == referencePersonManager);
+    ASSERT_TRUE(result);
 }
 
 int main(int argc, char** argv)

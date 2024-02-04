@@ -6,7 +6,8 @@
 int main()
 {
 /*
- *  SORT BY PESEL MANUAL TEST
+    //SORT BY PESEL//SURNAME MANUAL TEST
+    
     PersonManager personManager;
     personManager.addPerson("Student", "Adam", "Malysz", "Ulica", 111222333, "Male", 333333);
     personManager.addPerson("Student", "Bartosz", "Kowalczyk", "Ulica", 101202303, "Male", 222222);
@@ -20,7 +21,20 @@ int main()
     personManager.sortByPesel();
     personManager.printAll();
     referencePersonManager.printAll();
+
+    personManager.addPerson("Person", "Andrzej", "Boryna", "ZeSzczecina", 332211445, "Male");
+    personManager.addPerson("Person", "Zaneta", "Zmakbeta", "Breslau", 001133667, "Female");
+    std::cout << "People added: \n";
+    personManager.printAll();
+
+
+    std::cout << "Sort by surname! \n\n";
+    personManager.sortBySurname();
+    personManager.printAll();
 */
+
+
+    PersonManager personManager;
 
     MenuManager menu;
     while(menu.isActive())

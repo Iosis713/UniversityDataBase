@@ -160,6 +160,15 @@ void PersonManager::sortByPesel()
                                                 });
 }
 
+void PersonManager::sortBySurname()
+{
+    std::sort(manager_.begin(), manager_.end(), [](const std::shared_ptr<Person>& lhs,
+                                                   const std::shared_ptr<Person>& rhs)
+            {
+                return lhs->getSurname() < rhs->getSurname();
+            });
+}
+
 //_______________________________GETTERS_______________________________________
 
 std::vector<std::shared_ptr<Person>>& PersonManager::getManager()
