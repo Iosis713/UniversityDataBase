@@ -39,7 +39,9 @@ public:
     void addToFile(std::string databaseName);
     void readFromFile(std::string fileName);
     
+    std::shared_ptr<Person> searchByPesel(const long int pesel);
     std::shared_ptr<Person> searchBySurname(const std::string& surname);
+    void sortByPesel();
 
     std::vector<std::shared_ptr<Person>>& getManager();
 

@@ -5,25 +5,22 @@
 
 int main()
 {
+/*
+ *  SORT BY PESEL MANUAL TEST
     PersonManager personManager;
-    
-    /*
-    personManager.addPerson("Person", "Pjoter", "Takijakja", "Ulica", 1122334455, "Male");
-    personManager.addPerson("Student", "Bartosz", "Kowalski", "Ulica", 11223344, "Male", 123456);
-    personManager.addPerson("Student", "Marek", "Nowa", "Nobezjaj", 11111111, "Male", 0000222);
-    personManager.addPerson("Person", "Pjoterka", "Takijakja2", "Tralalalala", 007, "Female");
+    personManager.addPerson("Student", "Adam", "Malysz", "Ulica", 111222333, "Male", 333333);
+    personManager.addPerson("Student", "Bartosz", "Kowalczyk", "Ulica", 101202303, "Male", 222222);
+    personManager.addPerson("Student", "Bartosz", "Kowalski", "Ulica", 222333444, "Male", 111111);
 
-    personManager.addToFile("database2.txt");
+    PersonManager referencePersonManager;
+    referencePersonManager.addPerson("Student", "Bartosz", "Kowalczyk", "Ulica", 101202303, "Male", 222222);
+    referencePersonManager.addPerson("Student", "Adam", "Malysz", "Ulica", 111222333, "Male", 333333);
+    referencePersonManager.addPerson("Student", "Bartosz", "Kowalski", "Ulica", 222333444, "Male", 111111);
     
-       
-    std::cout << "Before reading: \n";
+    personManager.sortByPesel();
     personManager.printAll();
-
-    personManager.readFromFile("database.txt");
-    
-    std::cout << "After reading: \n";
-    personManager.printAll();
-    */
+    referencePersonManager.printAll();
+*/
 
     MenuManager menu;
     while(menu.isActive())
@@ -33,4 +30,3 @@ int main()
 
    return 0;
 }
-

@@ -126,12 +126,39 @@ std::shared_ptr<Person> PersonManager::searchBySurname(const std::string& surnam
             }
         }
     }
-    
+    std::cout << "No person found!\n";
+    return nullptr;
+}
+
+std::shared_ptr<Person> PersonManager::searchByPesel(const long int pesel)
+{
+    for(auto& person : manager_)
+    {
+        if(pesel == person->getPesel())
+        {
+            person->printPerson();
+            std::cout << "Look for another person? y/n\n";
+            char answer;
+            std::cin >> answer;
+            if(answer == 'n')
+            {
+                return person;
+            }
+        }
+    }
     std::cout << "No person found!\n";
 
     return nullptr;
 }
 
+void PersonManager::sortByPesel()
+{
+    std::sort(manager_.begin(), manager_.end(), [](const std::shared_ptr<Person>& lhs,
+                                                   const std::shared_ptr<Person>& rhs)
+                                                {
+                                                    return lhs->getPesel() < rhs->getPesel();
+                                                });
+}
 
 //_______________________________GETTERS_______________________________________
 

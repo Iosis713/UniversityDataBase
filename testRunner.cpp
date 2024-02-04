@@ -46,11 +46,55 @@ TEST(SearchBySurname, negativeFound)
     
     personManager.addPerson("Student", "Adam", "Malysz", "Ulica", 11223344, "Male", 123456);
     personManager.addPerson("Student", "Bartosz", "Kowalczyk", "Ulica", 11223344, "Male", 123456);
-    personManager.addPerson("Student", "Bartosz", "Kowalski", "Ulica", 11223344, "Male", 123456);
+    personManager.addPerson("Student", "Bartosz", "Kowalski", "Ulica", 10223344, "Male", 123456);
     
     const std::string referenceSurname = "Alibaba";
 
     ASSERT_EQ(personManager.searchBySurname("Alibaba"), nullptr);
+}
+
+TEST(SearchByPesel, positiveFound)
+{
+    PersonManager personManager;
+    
+    personManager.addPerson("Student", "Adam", "Malysz", "Ulica", 11223344, "Male", 123456);
+    personManager.addPerson("Student", "Bartosz", "Kowalczyk", "Ulica", 11223344, "Male", 123456);
+    personManager.addPerson("Student", "Bartosz", "Kowalski", "Ulica", 111222333, "Male", 123456);
+    
+    const long int referencePesel = 111222333;
+
+    ASSERT_EQ(personManager.searchByPesel(referencePesel)->getPesel(), referencePesel);
+}
+
+
+TEST(SearchByPesel, negativeFound)
+{
+    PersonManager personManager;
+    
+    personManager.addPerson("Student", "Adam", "Malysz", "Ulica", 11223344, "Male", 123456);
+    personManager.addPerson("Student", "Bartosz", "Kowalczyk", "Ulica", 11223344, "Male", 123456);
+    personManager.addPerson("Student", "Bartosz", "Kowalski", "Ulica", 111222333, "Male", 123456);
+    
+    const long int referencePesel = 000111222;
+
+    ASSERT_EQ(personManager.searchByPesel(referencePesel), nullptr);
+}
+
+TEST(SortingByPesel, peselSorting1)
+{
+    PersonManager personManager;
+    personManager.addPerson("Student", "Adam", "Malysz", "Ulica", 111222333, "Male", 333333);
+    personManager.addPerson("Student", "Bartosz", "Kowalczyk", "Ulica", 101202303, "Male", 222222);
+    personManager.addPerson("Student", "Bartosz", "Kowalski", "Ulica", 222333444, "Male", 111111);
+
+    PersonManager referencePersonManager;
+    referencePersonManager.addPerson("Student", "Bartosz", "Kowalczyk", "Ulica", 101202303, "Male", 222222);
+    referencePersonManager.addPerson("Student", "Adam", "Malysz", "Ulica", 111222333, "Male", 333333);
+    referencePersonManager.addPerson("Student", "Bartosz", "Kowalski", "Ulica", 222333444, "Male", 111111);
+ 
+    personManager.sortByPesel();
+
+    ASSERT_TRUE(personManager == referencePersonManager);
 }
 
 int main(int argc, char** argv)
