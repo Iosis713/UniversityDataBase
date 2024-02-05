@@ -95,7 +95,7 @@ TEST(SortingByPesel, peselSorting1)
     personManager.sortByPesel();
     bool result;
     
-    for(int i = 0; static_cast<int>(personManager.getManager().size()); i++)
+    for(int i = 0; i < static_cast<int>(personManager.getManager().size()); i++)
     {
         if(personManager.getManager()[i]->getPesel() !=
            referencePersonManager.getManager()[i]->getPesel())
@@ -104,6 +104,66 @@ TEST(SortingByPesel, peselSorting1)
             break;
         }
         result = true;
+    }
+
+    ASSERT_TRUE(result);
+}
+
+TEST(DeleteByIndex, deletePositive)
+{
+    PersonManager personManager;
+    personManager.addPerson("Student", "Adam", "Malysz", "Ulica", 111222333, "Male", 333333);
+    personManager.addPerson("Student", "Bartosz", "Kowalczyk", "Ulica", 101202303, "Male", 222222);
+    personManager.addPerson("Student", "Bartosz", "Kowalski", "Ulica", 222333444, "Male", 111111);
+
+    PersonManager referencePersonManager;
+    referencePersonManager.addPerson("Student", "Adam", "Malysz", "Ulica", 111222333, "Male", 333333);
+    referencePersonManager.addPerson("Student", "Bartosz", "Kowalczyk", "Ulica", 101202303, "Male", 222222);
+
+    personManager.deleteByIndex(111111);
+    
+    bool result;
+    for(int i = 0; i < static_cast<int>(personManager.getManager().size()); i++)
+    {
+        if(!(*personManager.getManager()[i] == *referencePersonManager.getManager()[i]))
+        {
+            result = false;
+            break;
+        }
+        else
+        {
+            result = true;
+        }
+    }
+
+    ASSERT_TRUE(result);
+}
+
+TEST(DeleteByIndex, deleteNegative)
+{
+    PersonManager personManager;
+    personManager.addPerson("Student", "Adam", "Malysz", "Ulica", 111222333, "Male", 333333);
+    personManager.addPerson("Student", "Bartosz", "Kowalczyk", "Ulica", 101202303, "Male", 222222);
+    personManager.addPerson("Student", "Bartosz", "Kowalski", "Ulica", 222333444, "Male", 111111);
+
+    PersonManager referencePersonManager;
+    referencePersonManager.addPerson("Student", "Adam", "Malysz", "Ulica", 111222333, "Male", 333333);
+    referencePersonManager.addPerson("Student", "Bartosz", "Kowalczyk", "Ulica", 101202303, "Male", 222222);
+    referencePersonManager.addPerson("Student", "Bartosz", "Kowalski", "Ulica", 222333444, "Male", 111111);
+    personManager.deleteByIndex(100000);
+
+    bool result;
+    for(int i = 0; i < static_cast<int>(personManager.getManager().size()); i++)
+    {
+        if(!(*personManager.getManager()[i] == *referencePersonManager.getManager()[i]))
+        {
+            result = false;
+            break;
+        }
+        else
+        {
+            result = true;
+        }
     }
 
     ASSERT_TRUE(result);

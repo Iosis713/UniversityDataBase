@@ -34,16 +34,17 @@ public:
                    const std::string& sex,
                    const long int index);
 
-    void printAll();
+   
 
     void addToFile(std::string databaseName);
+    void deleteByIndex(const long int& index);
     void readFromFile(std::string fileName);
-    
+    void printAll(); 
     std::shared_ptr<Person> searchByPesel(const long int pesel);
     std::shared_ptr<Person> searchBySurname(const std::string& surname);
     void sortByPesel();
     void sortBySurname();
-    
+       
     std::vector<std::shared_ptr<Person>>& getManager();
 
 };

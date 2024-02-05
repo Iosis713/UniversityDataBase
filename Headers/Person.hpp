@@ -33,6 +33,7 @@ public:
     long int getPesel() const;
     std::string getSex() const;
     std::string getPersonType() const;
+    
 //_____________________________SETTERS____________________________
 
     void setAdress(const std::string& adress);

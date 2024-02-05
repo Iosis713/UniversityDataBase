@@ -26,15 +26,6 @@ void PersonManager::addPerson(const std::string& personType,
     manager_.push_back(std::make_shared<Student>(personType, name, surname, adress, pesel, sex, index));
 }
 
-void PersonManager::printAll()
-{
-    for(auto& person : manager_)
-    {
-        person->printPerson();
-        std::cout << '\n';
-    }
-}
-
 void PersonManager::addToFile(std::string databaseName)
 {
     std::ofstream database(databaseName, database.out | database.app);
@@ -54,6 +45,24 @@ void PersonManager::addToFile(std::string databaseName)
                 database << std::dynamic_pointer_cast<Student>(person)->getIndex() << '\n';
             }
         }
+    }
+}
+
+void PersonManager::deleteByIndex(const long int& index)
+{
+    auto it = std::find_if(manager_.begin(), manager_.end(), [&](const auto& person)
+                {
+                    auto ptr = std::dynamic_pointer_cast<Student>(person);
+                    return ptr && (ptr->getIndex() == index);
+                });
+    if(it != manager_.end())
+    {
+        manager_.erase(it);
+        std::cout << "Student sucessfully deleted!\n";
+    }
+    else
+    {
+        std::cout << "Student with given index number not found!\n";
     }
 }
 
@@ -107,6 +116,15 @@ void PersonManager::readFromFile(std::string fileName)
                 getline(database, str, '\n');
             }
         }
+    }
+}
+
+void PersonManager::printAll()
+{
+    for(auto& person : manager_)
+    {
+        person->printPerson();
+        std::cout << '\n';
     }
 }
 
