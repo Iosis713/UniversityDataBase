@@ -26,6 +26,18 @@ void PersonManager::addPerson(const std::string& personType,
     manager_.push_back(std::make_shared<Student>(personType, name, surname, adress, pesel, sex, index));
 }
 
+
+void PersonManager::addEmployee(const std::string& personType,
+                              const std::string& name,
+                              const std::string& surname,
+                              const std::string& adress,
+                              const long int pesel,
+                              const std::string& sex,
+                              float salary)
+{
+    manager_.push_back(std::make_shared<Employee>(personType, name, surname, adress, pesel, sex, salary));
+}
+
 void PersonManager::addToFile(std::string databaseName)
 {
     std::ofstream database(databaseName, database.out | database.app);
@@ -43,6 +55,11 @@ void PersonManager::addToFile(std::string databaseName)
             if(typeid(*person) == typeid(Student))
             {
                 database << std::dynamic_pointer_cast<Student>(person)->getIndex() << '\n';
+            }
+            
+            else if(typeid(*person) == typeid(Employee))
+            {
+                database << std::dynamic_pointer_cast<Employee>(person)->getSalary();
             }
         }
     }
@@ -176,6 +193,19 @@ void PersonManager::sortByPesel()
                                                 {
                                                     return lhs->getPesel() < rhs->getPesel();
                                                 });
+}
+
+void PersonManager::sortBySalary()
+{
+    //increasing sort
+    std::sort(manager_.begin(), manager_.end(), [](const std::shared_ptr<Person>& lhs,
+                                                   const std::shared_ptr<Person>& rhs)
+            {   
+                bool result = (std::dynamic_pointer_cast<Employee>(lhs)->getSalary() < 
+                               std::dynamic_pointer_cast<Employee>(rhs)->getSalary());
+                
+                return result;
+            });
 }
 
 void PersonManager::sortBySurname()

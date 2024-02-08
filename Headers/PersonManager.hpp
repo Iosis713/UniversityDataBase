@@ -2,6 +2,7 @@
 
 #include "Person.hpp"
 #include "Student.hpp"
+#include "Employee.hpp"
 
 #include <algorithm>
 #include <fstream>
@@ -33,6 +34,16 @@ public:
                    const long int pesel,
                    const std::string& sex,
                    const long int index);
+    
+    //Employee class adding
+    void addEmployee(const std::string& personType,
+                   const std::string& name,
+                   const std::string& surname,
+                   const std::string& adress,
+                   const long int pesel,
+                   const std::string& sex,
+                   float salary);
+
 
    
 
@@ -43,6 +54,7 @@ public:
     std::shared_ptr<Person> searchByPesel(const long int pesel);
     std::shared_ptr<Person> searchBySurname(const std::string& surname);
     void sortByPesel();
+    void sortBySalary();
     void sortBySurname();
        
     std::vector<std::shared_ptr<Person>>& getManager();

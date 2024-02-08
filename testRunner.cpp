@@ -169,6 +169,37 @@ TEST(DeleteByIndex, deleteNegative)
     ASSERT_TRUE(result);
 }
 
+TEST(SortBySalary, positiveSort)
+{
+    PersonManager personManager;
+    personManager.addEmployee("Employee", "Adam", "Malysz", "Ulica", 111222333, "Male", 5600);
+    personManager.addEmployee("Employee", "Bozena", "Adamiakowa", "UlicaDruga", 222333444, "Female", 4786.90);
+    personManager.addEmployee("Employee", "Halina", "Kiepska", "SwiatWgKiepskich", 1012319823, "Female", 7905.1);
+
+    PersonManager referencePersonManager;
+    referencePersonManager.addEmployee("Employee", "Bozena", "Adamiakowa", "UlicaDruga", 222333444, "Female", 4786.90);
+    referencePersonManager.addEmployee("Employee", "Adam", "Malysz", "Ulica", 111222333, "Male", 5600);
+    referencePersonManager.addEmployee("Employee", "Halina", "Kiepska", "SwiatWgKiepskich", 1012319823, "Female", 7905.1);
+    
+    personManager.sortBySalary();    
+
+    bool result = false;
+    for(int i = 0; i < static_cast<int>(personManager.getManager().size()); i++)
+    {
+        if(!(*personManager.getManager()[i] == *referencePersonManager.getManager()[i]))
+        {
+            result = false;
+            break;
+        }
+        else
+        {
+            result = true;
+        }
+    }
+
+    ASSERT_TRUE(result);
+}
+
 int main(int argc, char** argv)
 {
     testing::InitGoogleTest(&argc, argv);
