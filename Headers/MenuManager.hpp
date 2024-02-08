@@ -14,7 +14,7 @@ public:
     MenuManager() = default;
     ~MenuManager() = default;
     void displayMenu(PersonManager& manager);
-
+    void displayMenuOptions();
     void setOption();
     
     bool isActive();

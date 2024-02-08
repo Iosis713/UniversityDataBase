@@ -2,19 +2,8 @@
 
 void MenuManager::displayMenu(PersonManager& manager)
 {
-    std::cout << "Click number to choose option:\n\n";
-
-    std::cout << "0. Exit\n";
-    std::cout << "1. Display actual database\n";
-    std::cout << "2. Read database\n";
-    std::cout << "3. Save database to file\n";
-    std::cout << "4. Add person\n";
-    
     setOption();
-    std::cout << '\n';
-    //std::system("cls");
-    //std::clear();
-    //std::cout<< u8"\033[2J\033[1;1H"; 
+    std::cout << '\n';   
 
     switch(option_){
     case 0:
@@ -49,12 +38,13 @@ void MenuManager::displayMenu(PersonManager& manager)
     
     case 4:
         {
-            std::cout << "Enter person type (Person/Student - Case matters!):\n";
+            std::cout << "Enter person type (Person/Student/Employee - Case matters!):\n";
             std::string tempPersonType;
             std::cin >> tempPersonType;
         
             if(tempPersonType == "Person" or
-               tempPersonType == "Student")
+               tempPersonType == "Student" or
+               tempPersonType == "Employee")
             {
                 std::cout << "Enter name:\n";
                 std::string tempName;
@@ -80,7 +70,7 @@ void MenuManager::displayMenu(PersonManager& manager)
                     {
                     std::cout << "Enter index number:\n";
                     long int tempIndex;
-                    std::cin>> tempIndex;
+                    std::cin >> tempIndex;
 
                     manager.addPerson(tempPersonType,
                                       tempName,
@@ -100,6 +90,21 @@ void MenuManager::displayMenu(PersonManager& manager)
                                       tempPesel,
                                       tempSex);             
                 }
+
+                else if(tempPersonType == "Employee")
+                {
+                    std::cout << "Enter salary: \n";
+                    float tempSalary = 0;
+                    std::cin >> tempSalary;
+
+                    manager.addEmployee(tempPersonType,
+                                        tempName,
+                                        tempSurname,
+                                        tempAdress,
+                                        tempPesel,
+                                        tempSex,
+                                        tempSalary);
+                }
             }
 
             else
@@ -111,10 +116,54 @@ void MenuManager::displayMenu(PersonManager& manager)
         }
         break;
     
+    case 5:
+    {
+        manager.sortByPesel();
+        break;
+    }
+
+    case 6:
+    {
+        manager.sortBySalary();
+        break;
+    }
+
+    case 7:
+    {
+        manager.sortBySurname();
+        break;
+    }
+
+    case 8:
+    {
+        std::cout << "Pass index number to delete: \n";
+        long int index = 0;
+        std::cin >> index;
+
+        manager.deleteByIndex(index);
+        break;
+    }
+
     default:
         std::cout << '\n';
         break;
     }
+}
+
+void MenuManager::displayMenuOptions()
+{
+    std::cout << "Click number to choose option:\n\n";
+    std::cout << "0. Exit\n";
+    std::cout << "1. Display actual database\n";
+    std::cout << "2. Read database\n";
+    std::cout << "3. Save database to file\n";
+    std::cout << "4. Add person\n";
+    std::cout << "5. Sort by pesel\n";
+    std::cout << "6. Sort by salary\n";
+    std::cout << "7. Sort by surname\n";
+    std::cout << "8. Delete by index\n";
+
+//search by surname/pesel has to be added here!
 }
 
 void MenuManager::setOption()
@@ -122,7 +171,7 @@ void MenuManager::setOption()
     int newOption;
     do{
         std::cin >> newOption;
-    }while(newOption > 4);
+    }while(newOption > 8);
 
     option_ = newOption;
 }

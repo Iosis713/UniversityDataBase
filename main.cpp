@@ -10,6 +10,7 @@ int main()
     MenuManager menu;
     while(menu.isActive())
     {
+        menu.displayMenuOptions();
         menu.displayMenu(personManager);
     }
 
