@@ -20,6 +20,10 @@ public:
     
     bool operator==(const Employee& employee) const;
 
+    void changeSalary(const float newSalary);
+    void printPerson() override;
+
     float getSalary() const;
+    
 };
 

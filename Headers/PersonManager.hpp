@@ -48,6 +48,7 @@ public:
    
 
     void addToFile(std::string databaseName);
+    
     void deleteByIndex(const long int& index);
     void readFromFile(std::string fileName);
     void printAll(); 
@@ -56,7 +57,7 @@ public:
     void sortByPesel();
     void sortBySalary();
     void sortBySurname();
-       
+      
     std::vector<std::shared_ptr<Person>>& getManager();
 
 };

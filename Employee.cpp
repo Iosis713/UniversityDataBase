@@ -22,6 +22,17 @@ bool Employee::operator==(const Employee& employee) const
            salary_ == employee.getSalary());
 }
 
+void Employee::changeSalary(const float newSalary)
+{
+    this->salary_ = newSalary;
+}
+
+void Employee::printPerson()
+{
+    Person::printPerson();
+    std::cout << salary_ << " \n";
+}
+
 float Employee::getSalary() const
 {
     return this->salary_;

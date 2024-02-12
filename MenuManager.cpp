@@ -143,7 +143,32 @@ void MenuManager::displayMenu(PersonManager& manager)
         manager.deleteByIndex(index);
         break;
     }
+    
+    case 9:
+    {
+        long int tempPesel = 0;
+        float salary = 0;
+        std::cout << "Pass pesel: \n";
+        std::cin >> tempPesel;
+        std::cout << "\nPass new salary:\n";
+        std::cin >>  salary;
+        std::shared_ptr<Person> tempPtr = manager.searchByPesel(tempPesel);
 
+        if(tempPtr)
+        {
+            
+            if(tempPtr->getPersonType() == "Employee")
+            {
+                std::dynamic_pointer_cast<Employee>(tempPtr)->changeSalary(salary);
+            }
+            else
+            {
+                std::cout << "Person type IS NOT 'Employee'\n";
+            }
+        }
+        break;
+
+    }
     default:
         std::cout << '\n';
         break;
@@ -162,6 +187,7 @@ void MenuManager::displayMenuOptions()
     std::cout << "6. Sort by salary\n";
     std::cout << "7. Sort by surname\n";
     std::cout << "8. Delete by index\n";
+    std::cout << "9. Find by pesel and change salary\n";
 
 //search by surname/pesel has to be added here!
 }
@@ -171,7 +197,7 @@ void MenuManager::setOption()
     int newOption;
     do{
         std::cin >> newOption;
-    }while(newOption > 8);
+    }while(newOption > 9);
 
     option_ = newOption;
 }
