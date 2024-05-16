@@ -1,5 +1,81 @@
 #include "Headers/MenuManager.hpp"
 
+void MenuManager::addPersonToDatabase(PersonManager& manager)
+{
+    std::cout << "Enter person type (Person/Student/Employee - Case matters!):\n";
+    std::string tempPersonType;
+    std::cin >> tempPersonType;
+        
+    if(tempPersonType == "Person" or
+       tempPersonType == "Student" or
+       tempPersonType == "Employee")
+    {
+        std::cout << "Enter name:\n";
+        std::string tempName;
+        std::cin >> tempName;
+
+        std::cout << "Enter surname:\n";
+        std::string tempSurname;
+        std::cin >> tempSurname;
+        
+        std::cout << "Enter adress:\n";
+        std::string tempAdress;
+        std::cin >> tempAdress;
+        
+        std::cout << "Enter pesel:\n";
+        long int tempPesel;
+        std::cin >> tempPesel;
+
+        std::cout << "Enter sex:\n";
+        std::string tempSex;
+        std::cin >> tempSex;
+
+        if(tempPersonType == "Student")
+        {
+            std::cout << "Enter index number:\n";
+            long int tempIndex;
+            std::cin>> tempIndex;
+
+            manager.addPerson(tempPersonType,
+                              tempName,
+                              tempSurname,
+                              tempAdress,
+                              tempPesel,
+                              tempSex,
+                              tempIndex);
+        }
+
+        else if(tempPersonType == "Person")
+        {
+            manager.addPerson(tempPersonType,
+                              tempName,
+                              tempSurname,
+                              tempAdress,
+                              tempPesel,
+                              tempSex);             
+        }
+        else if(tempPersonType == "Employee")
+        {
+            std::cout << "Enter salary:\n";
+            float tempSalary;
+            std::cin >> tempSalary;
+                    
+            manager.addEmployee(tempPersonType,
+                                tempName,
+                                tempSurname,
+                                tempAdress,
+                                tempPesel,
+                                tempSex,
+                                tempSalary);
+        }
+    }
+
+    else
+    {   
+        std::cout << "Invalid person type!\n";
+    }     
+}
+
 void MenuManager::displayMenu(PersonManager& manager)
 {
     std::cout << "Click number to choose option:\n\n";
@@ -30,7 +106,7 @@ void MenuManager::displayMenu(PersonManager& manager)
     case 2:
         std::cout << "Enter a file name You want to read:\n";
         {
-            std::string file = "database.txt";
+            std::string file;
             std::cin >> file;
 
             manager.readFromFile(file);
@@ -49,12 +125,13 @@ void MenuManager::displayMenu(PersonManager& manager)
     
     case 4:
         {
-            std::cout << "Enter person type (Person/Student - Case matters!):\n";
+            /*std::cout << "Enter person type (Person/Student/Employee - Case matters!):\n";
             std::string tempPersonType;
             std::cin >> tempPersonType;
         
             if(tempPersonType == "Person" or
-               tempPersonType == "Student")
+               tempPersonType == "Student" or
+               tempPersonType == "Employee")
             {
                 std::cout << "Enter name:\n";
                 std::string tempName;
@@ -100,14 +177,28 @@ void MenuManager::displayMenu(PersonManager& manager)
                                       tempPesel,
                                       tempSex);             
                 }
+                else if(tempPersonType == "Employee")
+                {
+                    std::cout << "Enter salary:\n";
+                    float tempSalary;
+                    std::cin >> tempSalary;
+                    
+                    manager.addEmployee(tempPersonType,
+                                        tempName,
+                                        tempSurname,
+                                        tempAdress,
+                                        tempPesel,
+                                        tempSex,
+                                        tempSalary);
+                }
             }
 
             else
             {   
                 std::cout << "Invalid person type!\n";
                 break;
-            }
-            
+            }*/
+        addPersonToDatabase(manager);
         }
         break;
     

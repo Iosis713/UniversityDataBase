@@ -19,7 +19,7 @@ public:
     virtual ~Employee() = default;
     
     bool operator==(const Employee& employee) const;
-
+    void printPerson();
     float getSalary() const;
 };
 

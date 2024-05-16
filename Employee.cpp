@@ -27,4 +27,10 @@ float Employee::getSalary() const
     return this->salary_;
 }
 
+void Employee::printPerson()
+{
+    Person::printPerson();
+    std::cout << salary_ << " ";
+}
+
 

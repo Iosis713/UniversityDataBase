@@ -10,6 +10,9 @@ class MenuManager
 protected:
     int option_ = 1;
     bool active_ = true;
+
+    void addPersonToDatabase(PersonManager& manager);
+
 public: 
     MenuManager() = default;
     ~MenuManager() = default;
