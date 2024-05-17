@@ -1,8 +1,7 @@
 #pragma once
 
 #include <iostream>
-//#include <stdlib.h>
-//#include <curses.h>
+
 #include "PersonManager.hpp"
 
 class MenuManager

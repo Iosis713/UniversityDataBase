@@ -152,7 +152,7 @@ std::shared_ptr<Person> PersonManager::searchBySurname(const std::string& surnam
         if(surname == person->getSurname())
         {
             person->printPerson();
-            std::cout << "Look for another person? y/n\n";
+            std::cout << "\nLook for another person? y/n\n";
             char answer;
             std::cin >> answer;
             if(answer == 'n')

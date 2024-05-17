@@ -1,5 +1,0 @@
-/home/barloz/Programming/UniversityDataBase/build/CMakeFiles/UniversityDataBase-lib.dir
-/home/barloz/Programming/UniversityDataBase/build/CMakeFiles/TestRunner.dir
-/home/barloz/Programming/UniversityDataBase/build/CMakeFiles/UniversityDataBase.dir
-/home/barloz/Programming/UniversityDataBase/build/CMakeFiles/edit_cache.dir
-/home/barloz/Programming/UniversityDataBase/build/CMakeFiles/rebuild_cache.dir

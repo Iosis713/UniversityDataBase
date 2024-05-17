@@ -1,2 +1,0 @@
-/usr/bin/ar qc libUniversityDataBase-lib.a CMakeFiles/UniversityDataBase-lib.dir/Person.cpp.o CMakeFiles/UniversityDataBase-lib.dir/Student.cpp.o CMakeFiles/UniversityDataBase-lib.dir/Employee.cpp.o CMakeFiles/UniversityDataBase-lib.dir/PersonManager.cpp.o CMakeFiles/UniversityDataBase-lib.dir/MenuManager.cpp.o
-/usr/bin/ranlib libUniversityDataBase-lib.a
