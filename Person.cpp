@@ -4,7 +4,7 @@ Person::Person(const std::string personType,
                std::string name,
                std::string surname,
                std::string adress,
-               const long int pesel,
+               const unsigned long int pesel,
                const std::string sex)
         : personType_(personType)
         , name_(name)
@@ -56,7 +56,7 @@ std::string Person::getPersonType() const
     return this->personType_;
 }
 
-long int Person::getPesel() const
+unsigned long int Person::getPesel() const
 {
     return this->pesel_;
 }

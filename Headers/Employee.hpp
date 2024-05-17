@@ -12,7 +12,7 @@ public:
               std::string name,
               std::string surname,
               std::string adress,
-              const long int pesel,
+              const unsigned long int pesel,
               const std::string sex,
               float salary);
 

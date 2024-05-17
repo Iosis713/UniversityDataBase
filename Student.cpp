@@ -4,9 +4,9 @@ Student::Student(const std::string personType,
                  const std::string name,
                  std::string surname,
                  std::string adress,
-                 const long int pesel,
+                 const unsigned long int pesel,
                  const std::string sex,
-                 const long int index)
+                 const unsigned long int index)
     : Person(personType, name, surname, adress, pesel, sex)
     , index_(index)
 {}
@@ -29,7 +29,7 @@ void Student::printPerson()
 
 //________________________GETTERS__________________________
 
-long int Student::getIndex() const
+unsigned long int Student::getIndex() const
 {
     return this->index_;
 }

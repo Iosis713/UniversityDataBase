@@ -9,7 +9,7 @@ void PersonManager::addPerson(const std::string& personType,
                               const std::string& name,
                               const std::string& surname,
                               const std::string& adress,
-                              const long int pesel,
+                              const unsigned long int pesel,
                               const std::string& sex)
 {
     manager_.push_back(std::make_shared<Person>(personType, name, surname, adress, pesel, sex));
@@ -19,9 +19,9 @@ void PersonManager::addPerson(const std::string& personType,
                               const std::string& name,
                               const std::string& surname,
                               const std::string& adress,
-                              const long int pesel,
+                              const unsigned long int pesel,
                               const std::string& sex,
-                              const long int index)
+                              const unsigned long int index)
 {
     manager_.push_back(std::make_shared<Student>(personType, name, surname, adress, pesel, sex, index));
 }
@@ -31,7 +31,7 @@ void PersonManager::addEmployee(const std::string& personType,
                               const std::string& name,
                               const std::string& surname,
                               const std::string& adress,
-                              const long int pesel,
+                              const unsigned long int pesel,
                               const std::string& sex,
                               float salary)
 {
@@ -65,7 +65,7 @@ void PersonManager::addToFile(std::string databaseName)
     }
 }
 
-void PersonManager::deleteByIndex(const long int& index)
+void PersonManager::deleteByIndex(const unsigned long int& index)
 {
     auto it = std::find_if(manager_.begin(), manager_.end(), [&](const auto& person)
                 {
@@ -94,7 +94,6 @@ void PersonManager::readFromFile(std::string fileName)
         getline(database, str, '\n');
         while(!database.eof())
         {   
-            //std::cout << str << '\n';
             if(str == "Person")
             {
                 const std::string tempPersonType = str;
@@ -105,7 +104,7 @@ void PersonManager::readFromFile(std::string fileName)
                 getline(database, str, '\n');
                 const std::string tempAdress = str;
                 getline(database, str, '\n');
-                const long int tempPesel = stol(str);
+                const unsigned long int tempPesel = stol(str);
                 getline(database, str, '\n');
                 const std::string tempSex = str;
                 addPerson(tempPersonType, tempName, tempSurname, tempAdress, tempPesel, tempSex);
@@ -124,11 +123,11 @@ void PersonManager::readFromFile(std::string fileName)
                 getline(database, str, '\n');
                 const std::string tempAdress = str;
                 getline(database, str, '\n');
-                const long int tempPesel = stol(str);
+                const unsigned long int tempPesel = stol(str);
                 getline(database, str, '\n');
                 const std::string tempSex = str;
                 getline(database,str, '\n');
-                const long int tempIndex = stol(str);
+                const unsigned long int tempIndex = stol(str);
                 addPerson(tempPersonType, tempName, tempSurname, tempAdress, tempPesel, tempSex, tempIndex);
                 getline(database, str, '\n');
             }
@@ -165,7 +164,7 @@ std::shared_ptr<Person> PersonManager::searchBySurname(const std::string& surnam
     return nullptr;
 }
 
-std::shared_ptr<Person> PersonManager::searchByPesel(const long int pesel)
+std::shared_ptr<Person> PersonManager::searchByPesel(const unsigned long int pesel)
 {
     for(auto& person : manager_)
     {

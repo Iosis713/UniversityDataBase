@@ -23,7 +23,7 @@ void MenuManager::addPersonToDatabase(PersonManager& manager)
         std::cin >> tempAdress;
         
         std::cout << "Enter pesel:\n";
-        long int tempPesel;
+        unsigned long int tempPesel;
         std::cin >> tempPesel;
 
         std::cout << "Enter sex:\n";
@@ -33,7 +33,7 @@ void MenuManager::addPersonToDatabase(PersonManager& manager)
         if(tempPersonType == "Student")
         {
             std::cout << "Enter index number:\n";
-            long int tempIndex;
+            unsigned long int tempIndex;
             std::cin>> tempIndex;
 
             manager.addPerson(tempPersonType,
@@ -78,20 +78,10 @@ void MenuManager::addPersonToDatabase(PersonManager& manager)
 
 void MenuManager::displayMenu(PersonManager& manager)
 {
-    std::cout << "Click number to choose option:\n\n";
-
-    std::cout << "0. Exit\n";
-    std::cout << "1. Display actual database\n";
-    std::cout << "2. Read database\n";
-    std::cout << "3. Save database to file\n";
-    std::cout << "4. Add person\n";
-    std::cout << "5. Search by pesel\n";
-    std::cout << "6. Serach by surname\n";
-    std::cout << "7. Sort by pesel\n";
-    std::cout << "8. Sort by surname\n";
+    displayOptions();   
 
     setOption();
-    std::cout << '\n'; 
+    std::system("clear"); 
 
     switch(option_){
     case 0:
@@ -102,7 +92,6 @@ void MenuManager::displayMenu(PersonManager& manager)
         }
     case 1:
         { 
-            std::cout << '\n';
             manager.printAll();
             std::cout << '\n';
             break;
@@ -132,7 +121,7 @@ void MenuManager::displayMenu(PersonManager& manager)
     case 5:
         {
             std::cout << "Enter pesel of person You are looking for:\n";
-            long int pesel;
+            unsigned long int pesel;
             std::cin >> pesel;
             manager.searchByPesel(pesel);
             break;
@@ -157,6 +146,13 @@ void MenuManager::displayMenu(PersonManager& manager)
             manager.sortBySurname();
             break;        
         }
+    case 9:
+        {
+            std::cout << "Sorting by salary!\n";
+            std::cout << "NOT WORKING YET!!!\n";
+            manager.sortBySalary();
+            break;
+        }
     default:
         {
             std::cout << '\n';
@@ -165,16 +161,31 @@ void MenuManager::displayMenu(PersonManager& manager)
     }
 }
 
+void MenuManager::displayOptions()
+{
+    std::cout << "Click number to choose option:\n\n";
+    std::cout << "0. Exit\n";
+    std::cout << "1. Display actual database\n";
+    std::cout << "2. Read database\n";
+    std::cout << "3. Save database to file\n";
+    std::cout << "4. Add person\n";
+    std::cout << "5. Search by pesel\n";
+    std::cout << "6. Serach by surname\n";
+    std::cout << "7. Sort by pesel\n";
+    std::cout << "8. Sort by surname\n";
+    std::cout << "9. Sort by salary\n";
+}
+
 void MenuManager::setOption()
 {   
     int newOption;
     do{
         std::cin >> newOption;
-        if(newOption > 8 or newOption < 0)
+        if(newOption > 9 or newOption < 0)
         {
-            std::cout << "\nSELECTED OPTION IS OUT OF RANGE!\n";
+            std::cout << "SELECTED OPTION IS OUT OF RANGE!\n";
         }
-    }while(newOption > 8 or newOption < 0);
+    }while(newOption > 9 or newOption < 0);
 
     option_ = newOption;
 }

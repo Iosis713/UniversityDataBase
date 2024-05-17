@@ -5,16 +5,16 @@
 class Student : public Person
 {
 protected:
-    const long int index_;
+    const unsigned long int index_;
 
 public:
     Student(const std::string personType,
             const std::string name,
             std::string surname,
             std::string adress,
-            const long int pesel,
+            const unsigned long int pesel,
             const std::string sex,
-            const long int index);
+            const unsigned long int index);
 
     virtual ~Student() = default;
     
@@ -24,7 +24,7 @@ public:
 
 //_________________________GETTERS____________________________
 
-    long int getIndex() const;
+    unsigned long int getIndex() const;
 
 };
 

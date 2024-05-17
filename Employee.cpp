@@ -4,7 +4,7 @@ Employee::Employee(const std::string personType,
               std::string name,
               std::string surname,
               std::string adress,
-              const long int pesel,
+              const unsigned long int pesel,
               const std::string sex,
               float salary)
     : Person(personType, name, surname, adress, pesel, sex)

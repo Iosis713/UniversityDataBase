@@ -9,7 +9,7 @@ protected:
     std::string name_;
     std::string surname_;
     std::string adress_;
-    const long int pesel_;
+    const unsigned long int pesel_;
     const std::string sex_;
 
 public:
@@ -17,7 +17,7 @@ public:
            std::string name,
            std::string surname,
            std::string adress,
-           const long int pesel,
+           const unsigned long int pesel,
            const std::string sex);
 
     virtual ~Person() = default;
@@ -30,7 +30,7 @@ public:
     std::string getName() const;
     std::string getSurname() const;
     std::string getAdress() const;
-    long int getPesel() const;
+    unsigned long int getPesel() const;
     std::string getSex() const;
     std::string getPersonType() const;
     

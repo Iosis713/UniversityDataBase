@@ -23,7 +23,7 @@ public:
                    const std::string& name,
                    const std::string& surname,
                    const std::string& adress,
-                   const long int pesel,
+                   const unsigned long int pesel,
                    const std::string& sex);
     
     //Student class adding
@@ -31,16 +31,16 @@ public:
                    const std::string& name,
                    const std::string& surname,
                    const std::string& adress,
-                   const long int pesel,
+                   const unsigned long int pesel,
                    const std::string& sex,
-                   const long int index);
+                   const unsigned long int index);
     
     //Employee class adding
     void addEmployee(const std::string& personType,
                    const std::string& name,
                    const std::string& surname,
                    const std::string& adress,
-                   const long int pesel,
+                   const unsigned long int pesel,
                    const std::string& sex,
                    float salary);
 
@@ -48,10 +48,10 @@ public:
    
 
     void addToFile(std::string databaseName);
-    void deleteByIndex(const long int& index);
+    void deleteByIndex(const unsigned long int& index);
     void readFromFile(std::string fileName);
     void printAll(); 
-    std::shared_ptr<Person> searchByPesel(const long int pesel);
+    std::shared_ptr<Person> searchByPesel(const unsigned long int pesel);
     std::shared_ptr<Person> searchBySurname(const std::string& surname);
     void sortByPesel();
     void sortBySalary();
